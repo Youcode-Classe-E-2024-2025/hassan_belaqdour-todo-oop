@@ -50,7 +50,7 @@
 
         <div class="mt-6 text-center text-sm">
             <span class="text-gray-600">Pas encore de compte?</span>
-            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+            <a href="sign_up.php" class="font-medium text-indigo-600 hover:text-indigo-500">
                 S'inscrire
             </a>
         </div>

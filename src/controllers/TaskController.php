@@ -20,7 +20,7 @@ class TaskController {
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             $this->task->title = $_POST['title'];
             $this->task->type = $_POST['type'];
-            $this->task->status = 'todo'; // Default status
+            $this->task->status = 'todo';
             $this->task->assignee = $_POST['assignee'];
 
             if($this->task->create()) {

@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include_once "../../config/connectiondb.php";
+include_once "../modules/Task.php";
 
 class TaskController {
     private $db;
@@ -63,5 +64,9 @@ class TaskController {
         
         echo json_encode($tasks);
     }
+}
+if(isset($_POST["add_task"])){
+    $res = new TaskController();
+    $res->createTask();
 }
 ?>

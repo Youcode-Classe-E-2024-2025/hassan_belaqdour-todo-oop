@@ -13,7 +13,7 @@
             <p class="text-gray-600 mt-2">Rejoignez notre gestionnaire de tâches</p>
         </div>
 
-        <form action="../controllers/UserController..php" method="post" class="space-y-6">
+        <form action="../controllers/UserController.php" method="post" class="space-y-6">
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label for="username" class="block text-sm font-medium text-gray-700">user name</label>
@@ -57,7 +57,7 @@
 
         <div class="mt-6 text-center text-sm">
             <span class="text-gray-600">Déjà un compte?</span>
-            <a href="login _form.php" class="font-medium text-indigo-600 hover:text-indigo-500">
+            <a href="login_form.php" class="font-medium text-indigo-600 hover:text-indigo-500">
                 Se connecter
             </a>
         </div>

@@ -1,21 +1,13 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
-session_start();
-if (empty($_SESSION)){
-    header('location: src/views/login_form.php');
-}
-?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskFlow - Gestion de Tâches</title>
+    <title>Document</title>
     <style>
-        /* Reset et styles de base */
-        * {
+                /* Reset et styles de base */
+                * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -136,41 +128,56 @@ if (empty($_SESSION)){
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>TaskFlow</h1>
-        </div>
-    </header>
-
-    <nav>
-        <div class="container">
-            <a href="#" id="nav-tasks">Tâches</a>
-            <a href="src/views/task_form.php" id="nav-new-task">Nouvelle Tâche</a>
-        </div>
-    </nav>
-
-    <main class="container">
-        <!-- Liste des tâches -->
-        <section id="tasks-list" class="section">
-            <h2>Liste des Tâches</h2>
-            <table class="task-table">
-                <thead>
-                    <tr>
-                        <th>Titre</th>
-                        <th>Type</th>
-                        <th>Statut</th>
-                        <th>Assigné à</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="tasks-table-body">
-                    <!-- Les tâches seront ajoutées ici dynamiquement -->
-                </tbody>
-            </table>
+<main class="container">
+        <section id="new-task-form" class="section" >
+            <h2>Nouvelle Tâche</h2>
+            <form action="../controllers/TaskController.php" method="post" id="task-form">
+                <div class="form-group">
+                    <label for="task-title">Titre</label>
+                    <input type="text" id="task-title" name="title" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="task-type">Type</label>
+                    <select id="task-type" name="type" class="form-control" required>
+                        <option value="basic">Tâche basique</option>
+                        <option value="bug">Bug</option>
+                        <option value="feature">Feature</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="task-assignee">Assigné à</label>
+                    <select id="task-assignee" name="assignee" class="form-control" name="assignee" >
+                    <option value="">Sélectionner un utilisateur</option>
+                    <?php include_once "../controllers/display_users.php"; ?>
+                    </select>
+                </div>
+                <button type="submit" name="btn_task" value="submit" class="btn btn-primary">Créer</button>
+            </form>
         </section>
-    </main>
+        </main>
+        <script>
 
-    <script>
+         
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => section.style.display = 'none');
+
+                switch(e.target.id) {
+                    case 'nav-new-task':
+                        document.getElementById('new-task-form').style.display = 'block';
+                        break;
+                    case 'nav-my-tasks':
+                    case 'nav-tasks':
+                    default:
+                        document.getElementById('tasks-list').style.display = 'block';
+                        refreshTasksList();
+                        break;
+                }
+            });
+        });
+
        
 
 

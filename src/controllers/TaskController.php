@@ -1,6 +1,7 @@
 <?php 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
 include_once "../../config/connectiondb.php";
 include_once "../modules/Task.php";
 
@@ -15,6 +16,7 @@ class TaskController {
     }
 
     public function createTask() {
+        echo "hi";
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             $this->task->title = $_POST['title'];
             $this->task->type = $_POST['type'];
@@ -26,6 +28,7 @@ class TaskController {
                     "status" => "success",
                     "message" => "Task created successfully"
                 ]);
+               
             } else {
                 echo json_encode([
                     "status" => "error",
@@ -34,6 +37,7 @@ class TaskController {
             }
         }
     }
+    
 
     public function updateTaskStatus() {
         if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -65,8 +69,10 @@ class TaskController {
         echo json_encode($tasks);
     }
 }
-if(isset($_POST["add_task"])){
+if(isset($_POST["btn_task"])){
     $res = new TaskController();
     $res->createTask();
 }
+                    
+                    
 ?>

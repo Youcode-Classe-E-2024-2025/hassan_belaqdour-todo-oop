@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 
 session_start();
 if (empty($_SESSION)){
-    header('location: src/views/login_form.php');
+    header('location: ../../views/login_form.php');
 }
 ?>
 <!DOCTYPE html>
@@ -145,7 +145,7 @@ if (empty($_SESSION)){
     <nav>
         <div class="container">
             <a href="#" id="nav-tasks">Tâches</a>
-            <a href="src/views/task_form.php" id="nav-new-task">Nouvelle Tâche</a>
+            <a href="../../src/views/task_form.php" id="nav-new-task">Nouvelle Tâche</a>
         </div>
     </nav>
 
@@ -163,9 +163,8 @@ if (empty($_SESSION)){
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody id="tasks-table-body">
-                    <!-- Les tâches seront ajoutées ici dynamiquement -->
-                </tbody>
+                    <?php require_once "../controllers/display_tasks.php"; ?>
+                    
             </table>
         </section>
     </main>

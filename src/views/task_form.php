@@ -128,6 +128,18 @@
     </style>
 </head>
 <body>
+<header>
+        <div class="container">
+            <h1>TaskFlow</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <a href="./../views/dashboard.php" id="nav-tasks">Tâches</a>
+            <a href="#" id="nav-new-task">Nouvelle Tâche</a>
+        </div>
+    </nav>
 <main class="container">
         <section id="new-task-form" class="section" >
             <h2>Nouvelle Tâche</h2>
@@ -155,65 +167,6 @@
             </form>
         </section>
         </main>
-        <script>
-
-         
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const sections = document.querySelectorAll('.section');
-                sections.forEach(section => section.style.display = 'none');
-
-                switch(e.target.id) {
-                    case 'nav-new-task':
-                        document.getElementById('new-task-form').style.display = 'block';
-                        break;
-                    case 'nav-my-tasks':
-                    case 'nav-tasks':
-                    default:
-                        document.getElementById('tasks-list').style.display = 'block';
-                        refreshTasksList();
-                        break;
-                }
-            });
-        });
-
-       
-
-
-        // Rafraîchir la liste des tâches
-        function refreshTasksList() {
-
-            const tbody = document.getElementById('tasks-table-body');
-            tbody.innerHTML = '';
-
-            taskManager.tasks.forEach(task => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${task.title}</td>
-                    <td>${task.type || 'basic'}</td>
-                    <td><span class="status-badge status-${task.status}">${task.status}</span></td>
-                    <td>${task.assignee}</td>
-                    <td>
-                        <select onchange="updateStatus('${task.id}', this.value)">
-                            <option value="todo" ${task.status === 'todo' ? 'selected' : ''}>À faire</option>
-                            <option value="in-progress" ${task.status === 'in-progress' ? 'selected' : ''}>En cours</option>
-                            <option value="done" ${task.status === 'done' ? 'selected' : ''}>Terminé</option>
-                        </select>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        // Mettre à jour le statut d'une tâche
-        function updateStatus(taskId, newStatus) {
-            taskManager.updateTaskStatus(taskId, newStatus);
-            refreshTasksList();
-        }
-
-        // Charger la liste initiale
-        refreshTasksList();
-    </script>
+      
 </body>
 </html>

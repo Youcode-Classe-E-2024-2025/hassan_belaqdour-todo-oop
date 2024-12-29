@@ -11,8 +11,7 @@ $user = new User($db);
 
 $users = $user->getAll();
 foreach($users as $user){
-echo "<option value=''>" . $user["username"] . "</option>"; 
+echo "<option value='" . $user["username"] . "'>" . $user["username"] . "</option>"; 
 }
-var_dump($users);
 ?>
 

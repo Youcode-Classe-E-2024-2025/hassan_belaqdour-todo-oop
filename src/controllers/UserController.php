@@ -53,6 +53,7 @@ class UserController {
     }
 
     public function login() {
+       
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -62,15 +63,22 @@ class UserController {
                 session_start();
                 $_SESSION['user_id'] = $user_data['id'];
                 $_SESSION['username'] = $user_data['username'];
-                header("Location: index.php");
+                header("Location: ../../index.php");
             } else {
-                return "Invalid credentials!";
+                echo "Invalid credentials!";
             }
         }
     }
 }
+if(isset($_POST["btn_sign_up"])){
+    $res = new UserController() ;
+    $res->register();
+}
+if(isset($_POST["btn_login"])){
+    $res = new UserController() ;
+    $res->login(); 
+}
 
-$res = new UserController() ;
-$res->register();
-$res->login();
+
+
 ?>

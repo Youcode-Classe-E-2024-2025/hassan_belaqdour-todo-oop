@@ -47,16 +47,16 @@ class User {
         return false;
     }
     public function getAll() {
-        // Query to select all users
+    
         $query = "SELECT id, username FROM " . $this->table_name;
         
-        // Prepare the query
+   
         $stmt = $this->conn->prepare($query);
         
-        // Execute the query
+ 
         $stmt->execute();
         
-        // Return all rows
+ 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

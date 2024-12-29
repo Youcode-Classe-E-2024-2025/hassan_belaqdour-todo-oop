@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-                /* Reset et styles de base */
                 * {
             margin: 0;
             padding: 0;
@@ -25,7 +24,6 @@
             padding: 20px;
         }
 
-        /* Header */
         header {
             background-color: #2c3e50;
             color: white;
@@ -48,7 +46,7 @@
             background-color: #445566;
         }
 
-        /* Tableaux */
+      
         .task-table {
             width: 100%;
             border-collapse: collapse;
@@ -68,7 +66,7 @@
             font-weight: bold;
         }
 
-        /* Formulaires */
+        
         .form-group {
             margin-bottom: 1rem;
         }
@@ -104,7 +102,6 @@
             color: white;
         }
 
-        /* Status badges */
         .status-badge {
             padding: 0.25rem 0.5rem;
             border-radius: 3px;

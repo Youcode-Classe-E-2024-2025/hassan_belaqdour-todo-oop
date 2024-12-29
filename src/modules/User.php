@@ -30,6 +30,8 @@ class User {
         return $stmt->execute();
     }
 
+    
+
     public function login($email, $password) {
         $query = "SELECT id, username, password FROM " . $this->table_name . 
                 " WHERE email = ?";

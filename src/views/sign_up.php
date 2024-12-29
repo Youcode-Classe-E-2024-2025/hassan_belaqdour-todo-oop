@@ -13,17 +13,11 @@
             <p class="text-gray-600 mt-2">Rejoignez notre gestionnaire de tâches</p>
         </div>
 
-        <form action="../controllers/get_users_infos.php" method="post" class="space-y-6">
+        <form action="../controllers/UserController..php" method="post" class="space-y-6">
             <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <label for="firstname" class="block text-sm font-medium text-gray-700">Prénom</label>
-                    <input type="text" id="firstname" name="firstname" required 
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                </div>
-
-                <div>
-                    <label for="lastname" class="block text-sm font-medium text-gray-700">Nom</label>
-                    <input type="text" id="lastname" name="lastname" required 
+                    <label for="username" class="block text-sm font-medium text-gray-700">user name</label>
+                    <input type="text" id="username" name="username" required 
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                 </div>
             </div>
